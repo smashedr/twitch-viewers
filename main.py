@@ -24,7 +24,7 @@ if __name__ == '__main__':
         twitch_stream_url = CONF['streams_url'] + CONF['twitch_id']
         while True:
             stream = req_twitch_json(twitch_stream_url, CONF['client_id'])
-            if stream:
+            if stream and stream['stream']:
                 message = '\rCurrent Viewers: {}  '.format(stream['stream']['viewers'])
             else:
                 message = '\rStream offline.      '
