@@ -5,8 +5,8 @@ import time
 CONF = {
     'twitch_id': '110503727',
     'client_id': '1l4mskyv7v4oymg0pnv5oreqplccwd',
-    'token_url': 'https://api.twitch.tv/kraken/streams/',
-    'sleep_seconds': 6,
+    'streams_url': 'https://api.twitch.tv/kraken/streams/',
+    'sleep_seconds': 60,
 }
 
 
@@ -21,7 +21,7 @@ def req_twitch_json(url, client_id):
 
 if __name__ == '__main__':
     try:
-        twitch_stream_url = CONF['token_url'] + CONF['twitch_id']
+        twitch_stream_url = CONF['streams_url'] + CONF['twitch_id']
         while True:
             stream = req_twitch_json(twitch_stream_url, CONF['client_id'])
             if stream:
